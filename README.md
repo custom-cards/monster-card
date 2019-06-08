@@ -6,7 +6,7 @@ Supports both inclusion and exclusion filters with wildcard for entity_ids.
 
 ## Installation
 Copy [`monster-card.js`](monster-card.js) into your `<config>/www` directory. If you have no `www` directory, create it and then restart Home Assistant for it to recognize the file.
-Add the reference to the file inside Raw Config Editor or 'ui-lovelace.yaml' under resources.
+Add the reference to the file inside Raw Config Editor or `ui-lovelace.yaml` under resources.
 ```
 resources:
   - url: /local/monster-card.js
