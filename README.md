@@ -27,6 +27,7 @@ Filter options for `include` and `exclude`:
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | domain | string | optional | Filter all entities that match the domain
+| group | string | optional | Filter all entities that are in an automation group
 | state | string | optional | Match entities that match state. Note, in YAML, make sure you wrap it in quotes to make sure it is parsed as a string.
 | entity_id | string | optional | Filter entities by id, supports wildcards (`*living_room*`). Case insensitive
 | name | string | optional | Filter entities by friendly_name or title, supports wildcards (`*kitchen*`). Case insensitive
