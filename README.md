@@ -173,6 +173,24 @@ Provide additional configuration options to entities:
           type: "custom:state-card-custom"
 ```
 
+On filtred entity click event, call a service for that specific entity_id(this.entity_id):
+``` yaml
+- type: 'custom:monster-card'
+card:
+  type: glance
+filter:
+  include:
+    - entity_id: binary_sensor.visonic*
+      attributes:
+        "state": "On"
+      options:
+        tap_action:
+          action: call-service
+          service: visonic.alarm_sensor_bypass
+          service_data:
+            bypass: 'True'
+            entity_id: this.entity_id
+```
 ## Sorting entities explained
 
 Entities are displayed in the card in the order they are matched by the include filters. I.e. to get a specific order, detailed filters must precede more general ones.
