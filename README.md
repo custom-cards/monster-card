@@ -109,7 +109,7 @@ Show all lights that are on (two methods):
       - state: 'unavailable'
 ```
 
-Show all entities in automation group group.water_leak that are on.
+Show all entities in automation group `group.water_leak` that are on.
 ```yaml
 - type: 'custom:monster-card'
   show_empty: true
