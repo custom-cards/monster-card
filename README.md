@@ -109,6 +109,19 @@ Show all lights that are on (two methods):
       - state: 'unavailable'
 ```
 
+Show all entities in automation group group.water_leak that are on.
+```yaml
+- type: 'custom:monster-card'
+  show_empty: true
+  card:
+    show_state: false
+    title: Water leak
+    type: glance
+  filter:
+    include:
+      - group: water_leak
+        state: 'on'
+```
 
 Show all in `device_tracker` with battery lower than 25:
 ```yaml
