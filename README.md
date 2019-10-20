@@ -4,6 +4,15 @@ Monster card is a magical type of card. Because it's dynamic if you're smart abo
 
 Supports both inclusion and exclusion filters with wildcard for entity_ids.
 
+## Installation
+Copy [`monster-card.js`](monster-card.js) into your `<config>/www` directory. If you have no `www` directory, create it and then restart Home Assistant for it to recognize the file.
+Add the reference to the file inside Raw Config Editor or `ui-lovelace.yaml` under resources.
+```
+resources:
+  - url: /local/monster-card.js
+    type: js
+```
+
 ## Options
 
 | Name | Type | Default | Description
@@ -178,6 +187,24 @@ Provide additional configuration options to entities:
           type: "custom:state-card-custom"
 ```
 
+On filtred entity click event, call a service for that specific entity_id(this.entity_id):
+``` yaml
+- type: 'custom:monster-card'
+card:
+  type: glance
+filter:
+  include:
+    - entity_id: binary_sensor.visonic*
+      attributes:
+        "state": "On"
+      options:
+        tap_action:
+          action: call-service
+          service: visonic.alarm_sensor_bypass
+          service_data:
+            bypass: 'True'
+            entity_id: this.entity_id
+```
 ## Sorting entities explained
 
 Entities are displayed in the card in the order they are matched by the include filters. I.e. to get a specific order, detailed filters must precede more general ones.
