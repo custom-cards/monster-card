@@ -1,5 +1,7 @@
 # Monster card
 
+Monster card has been decprecated in favor of it successor, [auto-entities](https://github.com/thomasloven/lovelace-auto-entities)
+
 Monster card is a magical type of card. Because it's dynamic if you're smart about it, you can have one card that adapts and that you don't need to touch when adding new entities & sensors to your setup.
 
 Supports both inclusion and exclusion filters with wildcard for entity_ids.
