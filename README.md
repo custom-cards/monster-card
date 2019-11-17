@@ -38,6 +38,7 @@ Filter options for `include` and `exclude`:
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | domain | string | optional | Filter all entities that match the domain
+| group | string | optional | Filter all entities that are in an automation group
 | state | string | optional | Match entities that match state. Note, in YAML, make sure you wrap it in quotes to make sure it is parsed as a string.
 | entity_id | string | optional | Filter entities by id, supports wildcards (`*living_room*`). Case insensitive
 | name | string | optional | Filter entities by friendly_name or title, supports wildcards (`*kitchen*`). Case insensitive
@@ -119,6 +120,19 @@ Show all lights that are on (two methods):
       - state: 'unavailable'
 ```
 
+Show all entities in automation group `group.water_leak` that are on.
+```yaml
+- type: 'custom:monster-card'
+  show_empty: true
+  card:
+    show_state: false
+    title: Water leak
+    type: glance
+  filter:
+    include:
+      - group: water_leak
+        state: 'on'
+```
 
 Show all in `device_tracker` with battery lower than 25:
 ```yaml

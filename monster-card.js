@@ -39,6 +39,13 @@ class MonsterCard extends HTMLElement {
     const entities = new Map();
     filters.forEach((filter) => {
       const filters = [];
+	  if (filter.group) {
+		const group_id = 'group.'+filter.group
+		if (group_id in hass.states){
+			const entities = hass.states[group_id].attributes['entity_id'];
+			filters.push(stateObj => entities.includes(stateObj.entity_id));
+		}
+	  }
       if (filter.domain) {
         filters.push(stateObj => stateObj.entity_id.split('.', 1)[0] === filter.domain);
       }
